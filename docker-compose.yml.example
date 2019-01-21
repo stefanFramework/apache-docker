@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:5.7
+    container_name: mysql_server
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=apache_docker
+    volumes:
+      - ./db/data:/var/lib/mysql
+    ports:
+      - 5780:3306
+
+  php:
+    build: ./php
+    container_name: php
+    volumes:
+      - ./web-application:/var/www/html/
+   
+  apache:
+    build: ./apache
+    depends_on:
+      - php
+      - database
+    ports:
+      - 7560:80
+    volumes:
+      - ./web-application/:/var/www/html/
+    container_name: apache    

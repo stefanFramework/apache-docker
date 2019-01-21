@@ -1,0 +1,7 @@
+.DS_Store
+.idea/
+docker-compose.yml
+
+# Ignore the data, but not the folder itself
+db/data/*
+!db/data/.gitkeep
