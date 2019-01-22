@@ -12,3 +12,4 @@ Instructions:
 - Once testing is done, run `docker-compose up -d` to run the environment on background
 
 You can use `docker ps -a` to see all running processes and `docker images` to see a list of downloaded images
+To see the app work, just type on your browser `http://localhost:7560/`
